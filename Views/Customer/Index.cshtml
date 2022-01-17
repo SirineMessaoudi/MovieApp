@@ -1,0 +1,12 @@
+﻿@model MovieApp.Models.MVVM.CustomerMovieVM
+@{
+    ViewBag.Title = "Customer Movie VM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+//AFFICHAGE Movie :
+<h2>@Model.movie.Name</h2>
+//+affichage Customer avec lien vers Customer/Details:
+@foreach (var item in Model.customers)
+{
+    <h2>@Html.ActionLink(item.Name, "Details", "Customer", new { id = item.Id }, null) </h2>
+}

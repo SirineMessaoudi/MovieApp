@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MovieApp.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <h2>@item.Name</h2>
+}

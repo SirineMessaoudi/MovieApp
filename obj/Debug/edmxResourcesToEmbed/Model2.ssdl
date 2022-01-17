@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Activites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" />
+    <Property Name="Genre" Type="nvarchar(max)" />
+    <Property Name="Prix" Type="real" Nullable="false" />
+    <Property Name="site_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Buses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroLigne" Type="int" Nullable="false" />
+    <Property Name="Horaire" Type="datetime" />
+    <Property Name="Transport_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Chambres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="Prix" Type="real" Nullable="false" />
+    <Property Name="hotel_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="membershiptypeId" Type="int" Nullable="false" />
+    <Property Name="DoB" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Genres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Internautes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Note" Type="int" Nullable="false" />
+    <Property Name="Commentaire" Type="nvarchar(max)" />
+    <Property Name="ServiceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Localisations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adresse" Type="nvarchar(max)" />
+    <Property Name="Ville" Type="nvarchar(max)" />
+    <Property Name="Pays" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Membershiptypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SignUpFee" Type="int" Nullable="false" />
+    <Property Name="DurationMonth" Type="int" Nullable="false" />
+    <Property Name="DiscountRate" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieCustomers">
+    <Key>
+      <PropertyRef Name="Movie_Id" />
+      <PropertyRef Name="Customer_Id" />
+    </Key>
+    <Property Name="Movie_Id" Type="int" Nullable="false" />
+    <Property Name="Customer_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Movies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="genre_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Offres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NbrePersonne" Type="int" Nullable="false" />
+    <Property Name="Prix" Type="real" Nullable="false" />
+    <Property Name="Descriptif" Type="nvarchar(max)" />
+    <Property Name="ServiceTouristique_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="ServiceTouristiques">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Anciennete" Type="nvarchar(max)" />
+    <Property Name="busId" Type="int" />
+    <Property Name="Adresse" Type="nvarchar(max)" />
+    <Property Name="NombreEtoile" Type="int" />
+    <Property Name="Qualite" Type="nvarchar(max)" />
+    <Property Name="Telephone" Type="int" />
+    <Property Name="typeCuisine" Type="nvarchar(max)" />
+    <Property Name="FraicheurDePlats" Type="nvarchar(max)" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="bus_Id" Type="int" />
+    <Property Name="localisation_Id" Type="int" />
+  </EntityType>
+  <Association Name="FK_dbo_Activites_dbo_ServiceTouristiques_site_Id">
+    <End Role="ServiceTouristiques" Type="Self.ServiceTouristiques" Multiplicity="0..1" />
+    <End Role="Activites" Type="Self.Activites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceTouristiques">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activites">
+        <PropertyRef Name="site_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Buses_dbo_ServiceTouristiques_Transport_Id">
+    <End Role="ServiceTouristiques" Type="Self.ServiceTouristiques" Multiplicity="0..1" />
+    <End Role="Buses" Type="Self.Buses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceTouristiques">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buses">
+        <PropertyRef Name="Transport_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Chambres_dbo_ServiceTouristiques_hotel_Id">
+    <End Role="ServiceTouristiques" Type="Self.ServiceTouristiques" Multiplicity="0..1" />
+    <End Role="Chambres" Type="Self.Chambres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceTouristiques">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chambres">
+        <PropertyRef Name="hotel_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Customers_dbo_Membershiptypes_membershiptypeId">
+    <End Role="Membershiptypes" Type="Self.Membershiptypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membershiptypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="membershiptypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Internautes_dbo_ServiceTouristiques_ServiceId">
+    <End Role="ServiceTouristiques" Type="Self.ServiceTouristiques" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Internautes" Type="Self.Internautes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceTouristiques">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Internautes">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MovieCustomers_dbo_Customers_Customer_Id">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MovieCustomers" Type="Self.MovieCustomers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieCustomers">
+        <PropertyRef Name="Customer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MovieCustomers_dbo_Movies_Movie_Id">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MovieCustomers" Type="Self.MovieCustomers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieCustomers">
+        <PropertyRef Name="Movie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Movies_dbo_Genres_genre_Id">
+    <End Role="Genres" Type="Self.Genres" Multiplicity="0..1" />
+    <End Role="Movies" Type="Self.Movies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genres">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Movies">
+        <PropertyRef Name="genre_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Offres_dbo_ServiceTouristiques_ServiceTouristique_Id">
+    <End Role="ServiceTouristiques" Type="Self.ServiceTouristiques" Multiplicity="0..1" />
+    <End Role="Offres" Type="Self.Offres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceTouristiques">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offres">
+        <PropertyRef Name="ServiceTouristique_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceTouristiques_dbo_Buses_bus_Id">
+    <End Role="Buses" Type="Self.Buses" Multiplicity="0..1" />
+    <End Role="ServiceTouristiques" Type="Self.ServiceTouristiques" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceTouristiques">
+        <PropertyRef Name="bus_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceTouristiques_dbo_Buses_busId">
+    <End Role="Buses" Type="Self.Buses" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ServiceTouristiques" Type="Self.ServiceTouristiques" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceTouristiques">
+        <PropertyRef Name="busId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceTouristiques_dbo_Localisations_localisation_Id">
+    <End Role="Localisations" Type="Self.Localisations" Multiplicity="0..1" />
+    <End Role="ServiceTouristiques" Type="Self.ServiceTouristiques" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localisations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceTouristiques">
+        <PropertyRef Name="localisation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Activites" EntityType="Self.Activites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Buses" EntityType="Self.Buses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chambres" EntityType="Self.Chambres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Internautes" EntityType="Self.Internautes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Localisations" EntityType="Self.Localisations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Membershiptypes" EntityType="Self.Membershiptypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieCustomers" EntityType="Self.MovieCustomers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offres" EntityType="Self.Offres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceTouristiques" EntityType="Self.ServiceTouristiques" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Activites_dbo_ServiceTouristiques_site_Id" Association="Self.FK_dbo_Activites_dbo_ServiceTouristiques_site_Id">
+      <End Role="ServiceTouristiques" EntitySet="ServiceTouristiques" />
+      <End Role="Activites" EntitySet="Activites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Buses_dbo_ServiceTouristiques_Transport_Id" Association="Self.FK_dbo_Buses_dbo_ServiceTouristiques_Transport_Id">
+      <End Role="ServiceTouristiques" EntitySet="ServiceTouristiques" />
+      <End Role="Buses" EntitySet="Buses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Chambres_dbo_ServiceTouristiques_hotel_Id" Association="Self.FK_dbo_Chambres_dbo_ServiceTouristiques_hotel_Id">
+      <End Role="ServiceTouristiques" EntitySet="ServiceTouristiques" />
+      <End Role="Chambres" EntitySet="Chambres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Customers_dbo_Membershiptypes_membershiptypeId" Association="Self.FK_dbo_Customers_dbo_Membershiptypes_membershiptypeId">
+      <End Role="Membershiptypes" EntitySet="Membershiptypes" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Internautes_dbo_ServiceTouristiques_ServiceId" Association="Self.FK_dbo_Internautes_dbo_ServiceTouristiques_ServiceId">
+      <End Role="ServiceTouristiques" EntitySet="ServiceTouristiques" />
+      <End Role="Internautes" EntitySet="Internautes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MovieCustomers_dbo_Customers_Customer_Id" Association="Self.FK_dbo_MovieCustomers_dbo_Customers_Customer_Id">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="MovieCustomers" EntitySet="MovieCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MovieCustomers_dbo_Movies_Movie_Id" Association="Self.FK_dbo_MovieCustomers_dbo_Movies_Movie_Id">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieCustomers" EntitySet="MovieCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Movies_dbo_Genres_genre_Id" Association="Self.FK_dbo_Movies_dbo_Genres_genre_Id">
+      <End Role="Genres" EntitySet="Genres" />
+      <End Role="Movies" EntitySet="Movies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Offres_dbo_ServiceTouristiques_ServiceTouristique_Id" Association="Self.FK_dbo_Offres_dbo_ServiceTouristiques_ServiceTouristique_Id">
+      <End Role="ServiceTouristiques" EntitySet="ServiceTouristiques" />
+      <End Role="Offres" EntitySet="Offres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceTouristiques_dbo_Buses_bus_Id" Association="Self.FK_dbo_ServiceTouristiques_dbo_Buses_bus_Id">
+      <End Role="Buses" EntitySet="Buses" />
+      <End Role="ServiceTouristiques" EntitySet="ServiceTouristiques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceTouristiques_dbo_Buses_busId" Association="Self.FK_dbo_ServiceTouristiques_dbo_Buses_busId">
+      <End Role="Buses" EntitySet="Buses" />
+      <End Role="ServiceTouristiques" EntitySet="ServiceTouristiques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceTouristiques_dbo_Localisations_localisation_Id" Association="Self.FK_dbo_ServiceTouristiques_dbo_Localisations_localisation_Id">
+      <End Role="Localisations" EntitySet="Localisations" />
+      <End Role="ServiceTouristiques" EntitySet="ServiceTouristiques" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
